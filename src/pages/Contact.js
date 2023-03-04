@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ContactList from '../components/ContactList'
 
 const Contact = () => {
 
@@ -6,7 +7,7 @@ const Contact = () => {
 
   useEffect(()=>{
     const fetchContact = async() => {
-      await fetch('http://localhost:5000/contacts')
+      await fetch('/contacts')
       .then(res=>{
         if(!res.ok) throw Error(res.statusText)
         return res.json()
@@ -25,9 +26,7 @@ const Contact = () => {
   return (
     <div>
       <div className='contacts'>
-        {contacts && contacts.map((contact)=>(
-          <p key={contact._id}>{contact.full_name}</p>
-        ))}
+        {contacts && <ContactList contacts={contacts}/>}
       </div>
     </div>
   )
