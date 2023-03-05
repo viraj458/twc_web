@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ContactList from '../components/ContactList'
+import { useLogout } from '../hooks/useLogout'
+import { useNavigate } from 'react-router-dom'
 
 const Contact = () => {
 
+  const {logout} = useLogout()
   const [contacts, setContacts] = useState(null)
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    logout()
+    navigate('/login')
+  }
 
   useEffect(()=>{
     const fetchContact = async() => {
@@ -30,6 +39,7 @@ const Contact = () => {
         {contacts && <ContactList contacts={contacts}/>}
       </div>
       <Link to='/contacts/new'><button>add new contact</button></Link>
+      <button onClick={handleClick}>logout</button>
     </div>
   )
 }
