@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import ContactList from '../components/ContactList'
 import { useLogout } from '../hooks/useLogout'
 import { useNavigate } from 'react-router-dom'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const Contact = () => {
 
+  const {user} = useAuthContext()
   const {logout} = useLogout()
   const [contacts, setContacts] = useState(null)
   const navigate = useNavigate()
@@ -17,7 +19,11 @@ const Contact = () => {
 
   useEffect(()=>{
     const fetchContact = async() => {
-      await fetch('/contacts')
+      await fetch('/contacts', {
+        headers:{
+          'Authorization': `Bearer ${user.token}`
+        }
+      })
       .then(res=>{
         if(!res.ok) throw Error(res.statusText)
         return res.json()
@@ -30,8 +36,10 @@ const Contact = () => {
         console.log(err.message);
       })
     }
-    fetchContact()
-  },[])
+    if(user){
+      fetchContact()
+    }
+  },[user])
 
   return (
     <div>

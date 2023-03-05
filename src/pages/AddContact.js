@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuthContext } from '../hooks/useAuthContext' 
 
 const AddContact = () => {
 
+  const {user} = useAuthContext()
   const navigate = useNavigate()
 
   const [fullName, setFullName] = useState('')
@@ -13,13 +15,17 @@ const AddContact = () => {
   const handleSubmit = async(e) => {
     e.preventDefault()
 
+    if(!user){
+      return
+    }
     const contact = {fullName, phoneNumber, email, gender}
 
     await fetch('/contacts', {
       method:'POST',
       body: JSON.stringify(contact),
       headers:{
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
       }
     })
     .then(res=>{
