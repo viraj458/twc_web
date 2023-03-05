@@ -1,10 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useSignup } from "../hooks/useSignup"
-import { useNavigate } from "react-router-dom"
 
 const Signup = () => {
-  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -17,7 +15,6 @@ const handleSubmit = async(e) => {
     throw Error("Passwords does not match")
   }
   await signup(email, password)
-  navigate('/contacts')
 }
 
   return (

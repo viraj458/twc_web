@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ContactList from '../components/ContactList'
 import { useLogout } from '../hooks/useLogout'
-import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 const Contact = () => {
@@ -10,11 +9,9 @@ const Contact = () => {
   const {user} = useAuthContext()
   const {logout} = useLogout()
   const [contacts, setContacts] = useState(null)
-  const navigate = useNavigate()
 
   const handleClick = () => {
     logout()
-    navigate('/login')
   }
 
   useEffect(()=>{

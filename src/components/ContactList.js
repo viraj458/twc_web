@@ -5,6 +5,7 @@ const ContactList = ({contacts}) => {
   return (
     <div className=''>
         <table>
+          <tbody>
             <tr>
             <th></th>
             <th>full name</th>
@@ -27,7 +28,7 @@ const ContactList = ({contacts}) => {
             )
             
             })}
-
+          </tbody>
         </table>
     </div>
   )
