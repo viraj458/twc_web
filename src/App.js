@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthContext } from './hooks/useAuthContext';
-import './App.css';
 
 import AddContact from './pages/AddContact';
 import Contact from './pages/Contact';
