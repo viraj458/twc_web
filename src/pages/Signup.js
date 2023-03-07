@@ -34,21 +34,21 @@ const handleSubmit = async(e) => {
             <form className="signup" onSubmit={handleSubmit}>
               <div className="flex flex-col w-[380px]">
                 <input 
-                className=' rounded-full mt-4 mb-6 px-5 py-1 text-[18px] text-[#ff2f2f] placeholder-[#083f46] font-semibold'
+                className=' rounded-full mt-4 mb-6 px-5 py-2 text-[18px] text-[#ff2f2f] placeholder-[#083f46] font-semibold'
                   type="email" 
                   onChange={(e) => setEmail(e.target.value)} 
                   value={email} 
                   placeholder='e-mail'
                 />
                 <input 
-                className='rounded-full mb-6 px-5 py-1 text-[18px] text-[#ff2f2f] placeholder-[#083f46] font-semibold'
+                className='rounded-full mb-6 px-5 py-2 text-[18px] text-[#ff2f2f] placeholder-[#083f46] font-semibold'
                   type="password" 
                   onChange={(e) => setPassword(e.target.value)} 
                   value={password} 
                   placeholder='password'
                 />
                 <input 
-                className='rounded-full mb-6 px-5 py-1 text-[18px] text-[#ff2f2f] placeholder-[#083f46] font-semibold'
+                className='rounded-full mb-6 px-5 py-2 text-[18px] text-[#ff2f2f] placeholder-[#083f46] font-semibold'
                   type="password" 
                   onChange={(e) => setConfirmPassword(e.target.value)} 
                   value={confirmPassword} 
@@ -56,7 +56,7 @@ const handleSubmit = async(e) => {
                 />
               </div>
               
-              <button className=' mt-6 border-[1px] rounded-full px-6 py-1 text-[18px] text-white font-semibold'>register</button>
+              <button className=' mt-6 border-[1px] rounded-full px-6 py-2 text-[18px] text-white font-semibold'>register</button>
                 
             </form>
             <div className="flex gap-[3px] text-white mt-16">
