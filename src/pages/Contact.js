@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import ContactList from '../components/ContactList'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
+import LogoWhite from '../components/LogoWhite'
+import {BiLogOutCircle} from 'react-icons/bi'
 
 const Contact = () => {
 
@@ -39,13 +41,29 @@ const Contact = () => {
   },[user])
 
   return (
-    <div>
-      <div className='contacts'>
-        {contacts && <ContactList contacts={contacts}/>}
+      <div className="image w-screen h-screen flex  items-center justify-center">
+        <div className='absolute w-[1530px] h-[980px] bg-[#083F46] rounded-full rotate-[20deg]'>
+          <div className="justify-center ml-[300px] mt-[200px] rotate-[-20deg]">
+              <LogoWhite />
+            
+            <div className='flex gap-[550px] mb-5 mt-9'>
+              <p className='font-bold text-3xl text-white'>Contacts</p>
+              <Link to='/contacts/new'><button className='border-[1px] rounded-full px-5 py-1 text-[18px] border-white font-semibold text-white'>add new contact</button></Link>
+            </div>
+
+            <div className='bg-white rounded-3xl mr-[380px]'>
+              {contacts && <ContactList contacts={contacts}/>}
+            </div>
+
+            <div>
+              <button className='flex ml-[900px] mt-20 py-1 text-[18px] text-white font-bold underline underline-offset-2' onClick={handleClick}><BiLogOutCircle className='w-7 h-7 mr-2'/>logout</button>
+            </div>
+          </div>
+        </div>
+        
+
       </div>
-      <Link to='/contacts/new'><button>add new contact</button></Link>
-      <button onClick={handleClick}>logout</button>
-    </div>
+    
   )
 }
 
