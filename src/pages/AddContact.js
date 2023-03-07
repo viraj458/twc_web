@@ -2,17 +2,25 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LogoWhite from '../components/LogoWhite'
 import { useAuthContext } from '../hooks/useAuthContext' 
+import { useLogout } from '../hooks/useLogout'
 import {BiLogOutCircle} from 'react-icons/bi'
 
 const AddContact = () => {
 
   const {user} = useAuthContext()
-  const navigate = useNavigate()
+  const {logout} = useLogout()
 
+  const navigate = useNavigate()
+  
   const [fullName, setFullName] = useState('')
   const [gender, setGender] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
+
+
+  const handleClick = () => {
+    logout()
+  }
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -45,6 +53,7 @@ const AddContact = () => {
       console.log(err.message);
     })
      
+    
   }
   return (
     <div className="image w-screen h-screen flex items-center justify-center">
@@ -110,7 +119,7 @@ const AddContact = () => {
             
           </div>
           <div>
-            <button className='flex ml-[900px] mt-20 py-1 text-[18px] text-white font-bold underline underline-offset-2'><BiLogOutCircle className='w-7 h-7 mr-2'/>logout</button>
+            <button className='flex ml-[900px] mt-20 py-1 text-[18px] text-white font-bold underline underline-offset-2' onClick={handleClick}><BiLogOutCircle className='w-7 h-7 mr-2'/>logout</button>
           </div>
         </div>
       </div>
