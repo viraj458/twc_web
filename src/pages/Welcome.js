@@ -13,7 +13,7 @@ const Welcome = () => {
   }
 
   return (
-    <div className="image w-screen h-screen flex items-center justify-center">
+    <div className="image w-screen h-screen flex items-center justify-center fixed">
       <div className='absolute w-[1530px] h-[980px] bg-[#083F46] rounded-full rotate-[20deg]'>
         <div className="justify-center ml-[300px] mt-[200px] rotate-[-20deg]">
           <LogoWhite/>

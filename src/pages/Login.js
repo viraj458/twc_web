@@ -16,7 +16,7 @@ const handleSubmit = async(e) => {
 }
 
   return (
-    <div className="image w-screen h-screen flex items-center justify-center">
+    <div className="image w-screen h-screen flex items-center justify-center fixed">
       <div className="w-[1502px] h-[1502px] bg-[#083f46] rounded-full ml-[-1300px]">
         <div className="flex justify-center gap-[400px] ml-[1300px] mt-[500px]">
           <div >

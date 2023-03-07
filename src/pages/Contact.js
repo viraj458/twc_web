@@ -41,7 +41,7 @@ const Contact = () => {
   },[user])
 
   return (
-      <div className="image w-screen h-screen flex  items-center justify-center">
+      <div className="image w-screen h-screen flex  items-center justify-center fixed">
         <div className='absolute w-[1530px] h-[980px] bg-[#083F46] rounded-full rotate-[20deg]'>
           <div className="justify-center ml-[300px] mt-[200px] rotate-[-20deg]">
               <LogoWhite />
@@ -56,7 +56,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <button className='flex ml-[900px] mt-20 py-1 text-[18px] text-white font-bold underline underline-offset-2' onClick={handleClick}><BiLogOutCircle className='w-7 h-7 mr-2'/>logout</button>
+              <button className='flex ml-[900px] mt-24 py-1 text-[18px] text-white font-bold underline underline-offset-2' onClick={handleClick}><BiLogOutCircle className='w-7 h-7 mr-2'/>logout</button>
             </div>
           </div>
         </div>
