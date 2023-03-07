@@ -9,8 +9,8 @@ const LogoGreen = () => {
         <p className='ml-[-5px] mt-1'>twc</p>
      </div>
      <div>
-        <p className='ml-2 mt-[-10px] font-bold text-5xl text-green-900'>contacts</p>
-        <p className='ml-2 mt-[-6px] font-semibold text-4xl text-green-900'>portal</p>
+        <p className='ml-2 mt-[-20px] font-bold text-6xl text-[#083F46]'>contacts</p>
+        <p className='ml-2 mt-[-6px] font-semibold text-5xl text-[#083F46]'>portal</p>
      </div>
     </div>
   )
