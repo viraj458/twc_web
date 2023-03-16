@@ -6,11 +6,53 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import LogoWhite from '../components/LogoWhite'
 import {BiLogOutCircle} from 'react-icons/bi'
 
+import DeleteConfirmMsg from '../components/DeleteConfirmMsg'
+import DeleteDoneMsg from '../components/DeleteDoneMsg'
+
 const Contact = () => {
 
   const {user} = useAuthContext()
   const {logout} = useLogout()
   const [contacts, setContacts] = useState(null)
+  const [shDeleteConfirmMsg, setShDeleteConfirmMsg] = useState(false)
+  const [shDeleteDoneMsg, setShDeleteDoneMsg] = useState(false)
+  const [editContactId2, setEditContactId2] = useState(null)
+
+  const handleOkay = () => {
+    setShDeleteDoneMsg(false)
+    window.location.reload()
+  }
+
+  const handleConfirm = (e, contact) => {
+    e.preventDefault()
+    setShDeleteConfirmMsg(true)
+    setEditContactId2(contact._id)
+  }
+
+  const handleNo = () => {
+    setShDeleteConfirmMsg(false)
+  }
+
+  const handleYes = () => {
+     fetch(`/contacts/${editContactId2}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      }
+    })
+    .then(res=>{
+      if(!res.ok) throw Error(res.statusText)
+      return res.json()
+    })
+    .then(data=>{
+      console.log(data)
+      setShDeleteConfirmMsg(false)
+      setShDeleteDoneMsg(true)
+    })
+    .catch(err=>{
+      console.log(err.message);
+    })
+  }
 
   const handleClick = () => {
     logout()
@@ -52,7 +94,7 @@ const Contact = () => {
             </div>
 
             <div className='bg-white rounded-3xl mr-[320px]'>
-              {contacts && <ContactList contacts={contacts}/>}
+              {contacts && <ContactList contacts={contacts} handleConfirm={handleConfirm}/>}
             </div>
 
             <div>
@@ -61,6 +103,8 @@ const Contact = () => {
           </div>
         </div>
         
+        <DeleteConfirmMsg visible={shDeleteConfirmMsg} handleNo={handleNo} handleYes={handleYes} />
+        <DeleteDoneMsg visible={shDeleteDoneMsg}  handleOkay={handleOkay} />
 
       </div>
     

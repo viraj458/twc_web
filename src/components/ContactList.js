@@ -6,10 +6,13 @@ import ReadOnlyRow from './ReadOnlyRow';
 import EditContact from './EditContact';
 import { useAuthContext } from '../hooks/useAuthContext';
 
-const ContactList = ({contacts}) => {
+
+const ContactList = ({contacts, handleConfirm}) => {
 
   const {user} = useAuthContext()
+
   const [editContactId, setEditContactId] = useState(null)
+  
 
   const [editFormData, setEditFormData] = useState({
     fullName: "", 
@@ -17,6 +20,9 @@ const ContactList = ({contacts}) => {
     email: "", 
     phoneNumber: ""
   })
+
+
+  
 
 
   const handleEditFormChange = (e) => {
@@ -110,6 +116,7 @@ const ContactList = ({contacts}) => {
                 <ReadOnlyRow 
                 contact={contact} 
                 handleEditClick={handleEditClick}
+                handleConfirm={handleConfirm}
                 />} 
               </tr>
             )
@@ -118,6 +125,7 @@ const ContactList = ({contacts}) => {
           </tbody>
         </table>
       </form>
+        
     </div>
   )
 }
