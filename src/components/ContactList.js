@@ -45,8 +45,8 @@ const ContactList = ({contacts, handleConfirm}) => {
 
     const editedContact = {
       id:editContactId,
-      fullName:editFormData.fullName, 
-      phoneNumber: editFormData.phoneNumber, 
+      full_name:editFormData.fullName, 
+      phone_number: editFormData.phoneNumber, 
       email: editFormData.email, 
       gender: editFormData.gender
     }
@@ -68,6 +68,7 @@ const ContactList = ({contacts, handleConfirm}) => {
     })
     .then((data)=>{
       console.log(data);
+      window.location.reload()
     })
     .catch(err=>{
       console.log(err.message);
