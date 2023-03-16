@@ -40,9 +40,9 @@ const AddContact = () => {
     })
     .then(res=>{
       if(!res.ok) throw Error(res.statusText)
-      res.json()
+      return res.json()
     })
-    .then(data=>{
+    .then(()=>{
       setFullName('')
       setGender('')
       setEmail('')

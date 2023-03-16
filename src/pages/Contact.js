@@ -46,12 +46,12 @@ const Contact = () => {
           <div className="justify-center ml-[300px] mt-[200px] rotate-[-20deg]">
               <LogoWhite />
             
-            <div className='flex gap-[550px] mb-5 mt-9'>
+            <div className='flex gap-[610px] mb-5 mt-9'>
               <p className='font-bold text-3xl text-white'>Contacts</p>
               <Link to='/contacts/new'><button className='border-[1px] rounded-full px-5 py-1 text-[18px] border-white font-semibold text-white'>add new contact</button></Link>
             </div>
 
-            <div className='bg-white rounded-3xl mr-[380px]'>
+            <div className='bg-white rounded-3xl mr-[320px]'>
               {contacts && <ContactList contacts={contacts}/>}
             </div>
 
