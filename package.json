@@ -1,5 +1,5 @@
 {
-  "proxy": "https://contacts-portal.onrender.com",
+  "proxy": "http://contacts-portal.onrender.com",
   "name": "twc-test-web",
   "version": "0.1.0",
   "private": true,
