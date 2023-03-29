@@ -77,7 +77,7 @@ const ContactList = ({contacts, handleConfirm}) => {
 
   const handleEditClick = (e, contact) => {
     e.preventDefault()
-    setEditContactId(contact._id)
+    setEditContactId(contact.id)
 
     const formValues = {
       fullName: contact.full_name,
@@ -106,9 +106,9 @@ const ContactList = ({contacts, handleConfirm}) => {
 
             {contacts.map((contact)=>{
             return(
-              <tr key={contact._id}>
+              <tr key={contact.id}>
                 <td className="px-8 py-[6px]">{contact.gender==="Male" ? (<img className='w-10 h-10' src={male} alt="Male"/>) : (<img className='w-10 h-10' src={female} alt="Female"/>)}</td>
-                {editContactId===contact._id ? 
+                {editContactId===contact.id ? 
                 <EditContact 
                 editFormData={editFormData} 
                 handleEditFormChange={handleEditFormChange}

@@ -26,7 +26,7 @@ const Contact = () => {
   const handleConfirm = (e, contact) => {
     e.preventDefault()
     setShDeleteConfirmMsg(true)
-    setEditContactId2(contact._id)
+    setEditContactId2(contact.id)
   }
 
   const handleNo = () => {
